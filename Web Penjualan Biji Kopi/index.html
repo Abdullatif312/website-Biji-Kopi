@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Nusantara - Toko Biji Kopi Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-coffee"></i>
+                    <span>Kopi Nusantara</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#products">Produk</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Kontak</a></li>
+                        <li class="cart-icon" id="open-cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cart-count">0</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Biji Kopi Premium Terbaik Nusantara</h1>
+            <p>Temukan berbagai macam biji kopi berkualitas tinggi dari berbagai daerah di Indonesia. Rasakan kenikmatan kopi asli dengan cita rasa yang autentik.</p>
+            <a href="#products" class="btn">Jelajahi Produk</a>
+        </div>
+    </section>
+
+    <section class="filters">
+        <div class="container">
+            <div class="filter-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Cari biji kopi...">
+                </div>
+                <div class="filter-options">
+                    <select id="origin-filter">
+                        <option value="">Semua Asal</option>
+                        <option value="Aceh">Aceh</option>
+                        <option value="Sumatera">Sumatera</option>
+                        <option value="Jawa">Jawa</option>
+                        <option value="Bali">Bali</option>
+                        <option value="Sulawesi">Sulawesi</option>
+                        <option value="Papua">Papua</option>
+                        <option value="Flores">Flores</option>
+                    </select>
+                    <select id="roast-filter">
+                        <option value="">Semua Tingkat Sangrai</option>
+                        <option value="Light">Light Roast</option>
+                        <option value="Medium">Medium Roast</option>
+                        <option value="Dark">Dark Roast</option>
+                    </select>
+                    <select id="sort-by">
+                        <option value="name">Urutkan berdasarkan Nama</option>
+                        <option value="price-low">Harga: Rendah ke Tinggi</option>
+                        <option value="price-high">Harga: Tinggi ke Rendah</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Produk Biji Kopi Kami</h2>
+            <div class="products-grid" id="products-container">
+                </div>
+        </div>
+    </section>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Keranjang Belanja</h2>
+                <button class="close-cart" id="close-cart-btn">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">Rp 0</span>
+                </div>
+                <button class="checkout-btn" id="checkout-btn">Lanjut ke Pembayaran</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-content">
+            <div class="cart-header">
+                <h2>Checkout</h2>
+                <button class="close-checkout" id="close-checkout-btn">&times;</button>
+            </div>
+            <form class="checkout-form" id="checkout-form">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Alamat Lengkap</label>
+                    <textarea id="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="shipping">Metode Pengiriman</label>
+                    <select id="shipping" required>
+                        <option value="">Pilih Metode Pengiriman</option>
+                        <option value="regular" data-cost="15000">Reguler (3-5 hari) - Rp 15.000</option>
+                        <option value="express" data-cost="25000">Express (1-2 hari) - Rp 25.000</option>
+                    </select>
+                </div>
+                
+                <div class="checkout-summary">
+                    <h3>Ringkasan Pesanan</h3>
+                    <div id="checkout-items">
+                        </div>
+                    <div class="checkout-summary-item">
+                        <span>Subtotal Produk:</span>
+                        <span id="checkout-subtotal">Rp 0</span>
+                    </div>
+                    <div class="checkout-summary-item">
+                        <span>Biaya Pengiriman:</span>
+                        <span id="checkout-shipping-cost">Rp 0</span>
+                    </div>
+                    <div class="checkout-total">
+                        <span>Total:</span>
+                        <span id="checkout-total-price">Rp 0</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Metode Pembayaran</h3>
+                    <div class="payment-options" id="payment-options">
+                        <div class="payment-option" data-payment="transfer">
+                            <i class="fas fa-university"></i>
+                            <p>Transfer Bank</p>
+                        </div>
+                        <div class="payment-option" data-payment="credit">
+                            <i class="far fa-credit-card"></i>
+                            <p>Kartu Kredit</p>
+                        </div>
+                        <div class="payment-option" data-payment="cod">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <p>Bayar di Tempat (COD)</p>
+                        </div>
+                    </div>
+                    <input type="hidden" id="selected-payment" required>
+                    <p id="payment-error" style="color: red; display: none;">Mohon pilih metode pembayaran.</p>
+                </div>
+                
+                <button type="submit" class="confirm-btn">Konfirmasi Pesanan</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="success-modal" id="success-modal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Pesanan Berhasil!</h2>
+            <p>Terima kasih telah berbelanja di Kopi Nusantara. Pesanan Anda sedang diproses dan akan dikirim segera.</p>
+            <button class="btn" id="success-close">Tutup</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kopi Nusantara</h3>
+                    <p>Menghadirkan biji kopi terbaik dari berbagai daerah di Indonesia dengan kualitas premium dan cita rasa yang autentik.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kopi Nusantara No. 123, Jakarta</p>
+                    <p><i class="fas fa-phone"></i> +62 21 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@kopinusantara.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/elmhn_?igsh=MTQ1czR6YXJ0OHZxMA=="><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Kopi Nusantara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
